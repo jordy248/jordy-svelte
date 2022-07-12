@@ -8,7 +8,7 @@
 
 <Header />
 
-<div class="container grid-cols-1">
+<div class="w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
   <slot />
 </div>
 
