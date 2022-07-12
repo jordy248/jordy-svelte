@@ -6,8 +6,8 @@
       link: "/home"
     },
     {
-      text: "Posts",
-      link: "/posts"
+      text: "Writing",
+      link: "/writing"
     },
     {
       text: "About",
@@ -24,7 +24,7 @@
   <!-- <nav class="flex-auto flex flex-row flex-wrap justify-center items-center sm:justify-end py-2"> -->
   <nav class="flex-auto flex flex-col justify-center sm:flex-row sm:flex-nowrap sm:justify-end py-4 sm:py-2">
     {#each headerLinks as headerLink}
-      <a href={headerLink.link} class="block [flex: 1 1 100%] sm:[flex: 1 1 auto] px-4 py-2 font-medium hover:glow-blue hover:text-sky-200">{headerLink.text}</a>
+      <a href={headerLink.link} class="block [flex: 1 1 100%] sm:[flex: 1 1 auto] px-4 py-2 my-2 sm:my-2 font-medium hover:glow-blue hover:text-sky-200">{headerLink.text}</a>
     {/each}
   </nav>
 </header>
