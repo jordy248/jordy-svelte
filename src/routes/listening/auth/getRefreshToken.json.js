@@ -1,14 +1,14 @@
 import Spotify from '$lib/spotify/Spotify.js';
 
-export async function get({ url }) {
+export async function get() {
 	const spotify = new Spotify();
 
 	try {
-		const accessToken = await spotify.getAccessToken();
-    const spotifyStatusCode = accessToken.status;
+		const accessTokenResp = await spotify.getAccessToken();
+    const { status } = accessTokenResp;
 
-		if (spotifyStatusCode === 200) {
-			const accessTokenData = await accessToken.json();
+		if (status === 200) {
+			const accessTokenData = await accessTokenResp.json();
 
 			return {
 				status: 200,
@@ -19,7 +19,7 @@ export async function get({ url }) {
 		} else {
 			return {
 				status: 500,
-				error: `Spotify status ${spotifyStatusCode}`
+				error: `Spotify status ${status}`
 			};
 		}
 	} catch (error) {

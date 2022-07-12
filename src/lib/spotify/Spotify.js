@@ -36,6 +36,7 @@ export default class Spotify {
 		// bind methods
 		this.getRandomString = this.getRandomString.bind(this);
 		this.getAccessToken = this.getAccessToken.bind(this);
+    this.getCurrentlyPlaying = this.getCurrentlyPlaying.bind(this);
 	}
 
 	getRandomString(length) {
@@ -105,7 +106,7 @@ export default class Spotify {
 		}
 	}
 
-	async getNowPlaying(OAuthToken, query) {
+	async getCurrentlyPlaying(OAuthToken, query) {
 		const endpoint = this.endpoints.find((e) => e.name === 'currentlyPlaying');
 
 		const resp = await fetch(endpoint.url, {

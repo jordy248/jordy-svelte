@@ -1,20 +1,20 @@
 <script>
 
-  async function getNowPlaying() {
+  async function getcurrentlyPlaying() {
     const res = await fetch('/listening/getCurrentlyPlaying.json');
     const data = await res.json();
     return data;
   }
 
-  async function parseNowPlaying() {
-    const data = await getNowPlaying();
+  async function parsecurrentlyPlaying() {
+    const data = await getcurrentlyPlaying();
 
     if (data) {
-      const spotifyURL = data?.nowPlayingData?.context?.external_urls?.spotify;
-      const { name } = data?.nowPlayingData?.item;
-      const { artists } = data?.nowPlayingData?.item;
-      const { images } = data?.nowPlayingData?.item?.album;
-      const albumName = data?.nowPlayingData?.item?.album?.name;
+      const spotifyURL = data?.currentlyPlayingData?.context?.external_urls?.spotify;
+      const { name } = data?.currentlyPlayingData?.item;
+      const { artists } = data?.currentlyPlayingData?.item;
+      const { images } = data?.currentlyPlayingData?.item?.album;
+      const albumName = data?.currentlyPlayingData?.item?.album?.name;
 
       const artistNames = artists.map(a => a.name);
       const artistNamesString = artistNames.join(',');
@@ -45,27 +45,27 @@
     }
   }
 
-  let nowPlayingPromise = parseNowPlaying();
+  let currentlyPlayingPromise = parsecurrentlyPlaying();
 </script>
 
 <div class="min-w-full sm:min-w-[400px] border border-solid border-neutral-600 rounded bg-neutral-800 px-2 py-4">
-  {#await nowPlayingPromise}
+  {#await currentlyPlayingPromise}
     <div class="w-full text-center text-green-400 pb-3 mb-2 border-b border-green-400">
       Getting Current Track...
     </div>
-  {:then nowPlayingData}
-    {#if nowPlayingData}
+  {:then currentlyPlayingData}
+    {#if currentlyPlayingData}
        <div class="w-full text-center text-green-400 pb-3 mb-2 border-b border-green-400">
           Currently Playing
         </div>
         <div class="flex flex-row flex-nowrap justify-between align-center text-neutral-200">
           <div class="flex-[1_0_auto] flex flex-col">
-            <img src="{nowPlayingData?.imageURL}" width="{nowPlayingData?.imageSize}" alt="{nowPlayingData?.albumName}">
+            <img src="{currentlyPlayingData?.imageURL}" width="{currentlyPlayingData?.imageSize}" alt="{currentlyPlayingData?.albumName}">
           </div>
           <div class="flex-[1_1_auto] flex flex-col">
-            <div class="font-bold">{nowPlayingData?.name}</div>
-            <div>{nowPlayingData?.artistNamesString}</div>
-            <div><a class="block relative text-green-400 underline" href="{nowPlayingData?.spotifyURL}" target="_blank">Listen Along</a></div>
+            <div class="font-bold">{currentlyPlayingData?.name}</div>
+            <div>{currentlyPlayingData?.artistNamesString}</div>
+            <div><a class="block relative text-green-400 underline" href="{currentlyPlayingData?.spotifyURL}" target="_blank">Listen Along</a></div>
           </div>
         </div>
     {:else}

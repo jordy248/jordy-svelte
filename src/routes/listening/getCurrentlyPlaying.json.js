@@ -1,4 +1,4 @@
-// import 'dotenv/config'; // this makes this work with dev server
+import 'dotenv/config'; // this makes this/ work with dev server
 
 import Spotify from '$lib/spotify/Spotify.js';
 
@@ -6,21 +6,20 @@ export async function get() {
 	const spotify = new Spotify();
 
 	try {
-		const accessToken = await spotify.refreshAccessToken();
-		const accessTokenData = accessToken?.access_token;
+		const accessTokenResp = await spotify.refreshAccessToken();
+		const accessTokenData = accessTokenResp?.access_token;
 
-		const nowPlaying = await spotify.getNowPlaying(accessTokenData);
-    const status = nowPlaying?.status;
+		const currentlyPlayingResp = await spotify.getCurrentlyPlaying(accessTokenData);
+    const { status } = currentlyPlayingResp;
 
     if (status === 200) {
-      const { resp } = nowPlaying;
-      const nowPlayingData = await resp.json();
-      // console.log('nowPlayingData', nowPlayingData);
+      const { resp } = currentlyPlayingResp;
+      const currentlyPlayingData = await resp.json();
+
       return {
         status: 200,
         body: {
-          nowPlaying,
-          nowPlayingData
+          currentlyPlayingData
         }
       };
     } else if (status === 204) {
