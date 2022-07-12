@@ -1,0 +1,49 @@
+/* Write your global styles here, in PostCSS syntax */
+
+@import url('https://fonts.googleapis.com/css2?family=Neonderthaw&display=swap');
+@import './_vars.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.glow-red {
+		text-shadow: -0.2rem -0.2rem 1rem var(--color-neon-red),
+			0.2rem 0.2rem 1rem var(--color-neon-red), 0 0 2rem var(--color-neon-red),
+			0 0 4rem var(--color-neon-red), 0 0 6rem var(--color-neon-red), 0 0 8rem var(--color-neon-red),
+			0 0 10rem var(--color-neon-red);
+		color: #ffeef0;
+	}
+
+	.glow-blue {
+		text-shadow: -0.2rem -0.2rem 1rem var(--color-neon-blue),
+			0.2rem 0.2rem 1rem var(--color-neon-blue), 0 0 2rem var(--color-neon-blue),
+			0 0 4rem var(--color-neon-blue), 0 0 6rem var(--color-neon-blue),
+			0 0 8rem var(--color-neon-blue), 0 0 10rem var(--color-neon-blue);
+		color: #ffeef0;
+	}
+
+	.link {
+		display: inline-block;
+		position: relative;
+		text-decoration: none;
+		padding: 0 0.125rem;
+	}
+	.link::after {
+		content: '';
+		box-sizing: border-box;
+		position: absolute;
+		top: 75%;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: -1;
+		transition: 333ms;
+		background-color: var(--color-blue-extra);
+		box-shadow: 0rem 0rem 0.125rem 0.125rem var(--color-blue-extra);
+	}
+	.link:hover::after {
+		top: 0%;
+	}
+}
