@@ -82,7 +82,7 @@
 
 <style lang="scss">
   .min-w-full {
-    & > .flex {
+    &>.flex {
       .flex-col {
         &:last-child {
           a {

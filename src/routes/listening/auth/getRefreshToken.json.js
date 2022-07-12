@@ -5,7 +5,7 @@ export async function get() {
 
 	try {
 		const accessTokenResp = await spotify.getAccessToken();
-    const { status } = accessTokenResp;
+		const { status } = accessTokenResp;
 
 		if (status === 200) {
 			const accessTokenData = await accessTokenResp.json();
@@ -25,7 +25,7 @@ export async function get() {
 	} catch (error) {
 		return {
 			status: 500,
-      error: `Error getting refresh token.`
+			error: `Error getting refresh token.`
 		};
 	}
 }
