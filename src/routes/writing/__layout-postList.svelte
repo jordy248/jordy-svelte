@@ -1,6 +1,6 @@
 <script context="module">
   export async function load() {
-    const posts = import.meta.globEager('../../lib/posts/*.md');
+    const posts = import.meta.globEager('../../lib/posts-markdown/*.md');
     const postImages = import.meta.globEager('../../lib/assets/**/*.{png,svg,jpg}');
 
     const postsList = Object.values(posts);
@@ -8,8 +8,7 @@
 
     console.log('posts', posts);
     console.log('postsMeta', postsMeta);
-
-
+    console.log('postImages', postImages);
 
     return {
       props: {
@@ -31,7 +30,7 @@
     {#each postsMeta as postMeta}
       <div class="flex flex-col">
           <div class="w-full flex-[1_0_auto]">
-            <h3 class="text-xl"><a href="/writing/about/{postMeta.slug}" title="{postMeta.title}" class="link text-neutral-200">{postMeta.title}</a></h3>
+            <h3 class="text-xl"><a href="/writing/about/{postMeta.slug}" title="{postMeta.title}" class="link text-zinc-200">{postMeta.title}</a></h3>
           </div>
           <div>
             <span class="text-sm">

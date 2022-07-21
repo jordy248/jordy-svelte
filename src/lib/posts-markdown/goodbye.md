@@ -1,0 +1,23 @@
+---
+title: Goodbye
+slug: goodbye
+date: 2020-12-12T00:00:00+00:00
+tags: bayes, hierarchical models, mixed models, random effect, oyster
+photo: ben-stern-4n96lyJd2Xs-unsplash.jpg
+photoCredit: Photo by Ben Stern on Unsplash
+photoURL: https://unsplash.com/photos/4n96lyJd2Xs?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink
+---
+
+<script></script>
+
+# {title}
+
+Elosaurus Jiangxisaurus Acheroraptor Aegyptosaurus Sinornithosaurus Kayentavenator Minotaurasaurus Alcovasaurus Tapinocephalus Tataouinea Amargastegos Caulodon Aorun Mymoorapelta Jianianhualong Eurolimnornis Paleosaurus Glyptodontopelta Mantellodon Actiosaurus Eucercosaurus Teinurosaurus Muttaburrasaurus Epidendrosaurus Crosbysaurus Parrosaurus Prenocephale Atacamatitan Veterupristisaurus Morosaurus Euskelosaurus Leaellynasaura Barapasaurus Mei Adasaurus Zatomus Orthogoniosaurus Chienkosaurus Bissektipelta Eurolimnornis Batyrosaurus Coronosaurus Galleonosaurus Plateosauravus Dynamoterror Ornatotholus Kayentavenator Avalonianus Peltosaurus Vectensia.
+
+Asiamericana Epanterias Megalosaurus Dahalokely Metriacanthosaurus Chromogisaurus Jiangjunosaurus Hongshanosaurus Aristosuchus Lapparentosaurus Revueltosaurus Avisaurus Homalocephale Protognathus Panamericansaurus Wiehenvenator Baurutitan Echinodon Rocasaurus Carcharodontosaurus Rahona Gigantosaurus Diclonius Turanoceratops Priodontognathus Lametasaurus Coloradia Blasisaurus Proa Peltosaurus Astrodontaurus Liubangosaurus Sinornithosaurus Tenontosaurus Syrmosaurus Phaedrolosaurus Antrodemus Planicoxa Galleonosaurus Jeyawati Morinosaurus Kinnareemimus Albertosaurus Astrodon Aeolosaurus Agathaumas Lisboasaurus Sinocalliopteryx Demandasaurus Laquintasaura.
+
+Eotrachodon Hanssuesia Zhuchengceratops Archaeoraptor Minotaurasaurus Wakinosaurus Yimenosaurus Canardia Luanchuanraptor Albinykus Quetecsaurus Avalonianus Lepidus Rugocaudia Diracodon Siats Stenotholus Halticosaurus Breviceratops Saltasaurus Aniksosaurus Malawisaurus Leonerasaurus Torvosaurus Mochlodon Mnyamawamtuka Eucnemesaurus Algoasaurus Procerosaurus Rapetosaurus Cladeiodon Lagerpeton Ultrasaurus Euronychodon Nopcsaspondylus Agilisaurus Caenagnathasia Apatosaurus Latenivenatrix Rhadinosaurus Juratyrant Camarillasaurus Convolosaurus Oryctodromeus Loricosaurus Amygdalodon Saurornitholestes Tenontosaurus Parasaurolophus Fulgurotherium.
+
+Gigantosaurus Ultrasaurus Deuterosaurus Aliwalia Diamantinasaurus Troodon Gobiraptor Neosaurus Amargastegos Ingenia Kulindadromeus Eucoelophysis Shuvuuia Mojoceratops Agujaceratops Rukwatitan Zizhongosaurus Rileyasuchus Echinodon Pukyongosaurus Isaberrysaura Kaijiangosaurus Ischioceratops Eoabelisaurus Lycorhinus Shaochilong Nodosaurus Yi Huaxiaosaurus Graciliraptor Limnosaurus Hoplitosaurus Anodontosaurus Gideonmantellia Aublysodon Pteropelyx Eucnemesaurus Proceratosaurus Huayangosaurus Compsognathus Aletopelta Urbacodon Trinisaura Ningyuansaurus Procompsognathus Protorosaurus Dasygnathoides Yandusaurus Citipati Vectisaurus.
+
+Tatisaurus Sarcolestes Ornithosuchus Lythronax Sahaliyania Huxleysaurus Jianchangosaurus Sinopliosaurus Stygimoloch Pitekunsaurus Cheneosaurus Pentaceratops Trinisaura Argentinosaurus Helopus Jobaria Ojoceratops Othnielosaurus Lurdusaurus Angloposeidon Nemegtosaurus Dromaeosaurus Eotrachodon Azendohsaurus Phuwiangosaurus Pachysuchus Zhuchengtyrannus Neovenator Protognathus Bolong Acanthopholis Kulindapteryx Huehuecanauhtlus Jingshanosaurus Baryonyx Herrerasaurus Cathetosaurus Troodon Tarchia Huabeisaurus Caenagnathasia Pachysauriscus Palaeosauriscus Bonitasaura Dracovenator Tienshanosaurus Garudimimus Caenagnathus Glacialisaurus Pelorosaurus.

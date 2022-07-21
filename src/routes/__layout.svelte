@@ -8,8 +8,12 @@
 
 <Header />
 
-<div class="w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
+<div class="container w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
   <slot />
 </div>
 
 <Footer />
+
+<style lang="scss" global>
+  @import '../styles/scss/app.scss';
+</style>

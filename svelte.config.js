@@ -20,7 +20,10 @@ const config = {
 		preprocess({
 			postcss: true
 		}),
-		mdsvex(mdsvexConfig),
+		mdsvex({
+			extensions: ['.md'],
+			layout: {}
+		})
 	]
 };
 

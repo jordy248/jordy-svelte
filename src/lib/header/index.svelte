@@ -16,7 +16,7 @@
   ];
 </script>
 
-<header class="flex flex-col justify-center items-center sm:flex-row sm:sticky top-0 z-100 w-full px-8 py-4 border-b border-neutral-600 brightness-90 backdrop-blur-md text-slate-200">
+<header class="flex flex-col justify-center items-center sm:flex-row sm:sticky top-0 z-[2147483647] w-full px-8 py-4 border-b border-zinc-600 brightness-90 backdrop-blur-md text-zinc-50">
   <div class="[flex: 2 1 auto] flex flex-row justify-center items-center text-center text-5xl font-Neonderthaw">
     <span class="glow-red">jordy</span><span class="animate-flicker">n</span><span class="glow-red">elson</span>
   </div>
