@@ -9,17 +9,17 @@ export async function get() {
 		const accessTokenResp = await spotify.refreshAccessToken();
 		const accessTokenData = accessTokenResp?.access_token;
 
-		const currentlyPlayingResp = await spotify.getCurrentlyPlaying(accessTokenData);
-		const { status } = currentlyPlayingResp;
+		const recentlyPlayedResp = await spotify.getRecentlyPlayed(accessTokenData);
+		const { status } = recentlyPlayedResp;
 
 		if (status === 200) {
-			const { resp } = currentlyPlayingResp;
-			const currentlyPlayingData = await resp.json();
+			const { resp } = recentlyPlayedResp;
+			const recentlyPlayedData = await resp.json();
 
 			return {
 				status: 200,
 				body: {
-					data: currentlyPlayingData
+					data: recentlyPlayedData
 				}
 			};
 		} else if (status === 204) {

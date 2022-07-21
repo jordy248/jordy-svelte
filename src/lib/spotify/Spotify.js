@@ -14,12 +14,6 @@ export default class Spotify {
 
 		this.endpoints = [
 			{
-				name: 'currentlyPlaying',
-				url: 'https://api.spotify.com/v1/me/player/currently-playing',
-				method: 'get',
-				params: ['market', 'additional_types']
-			},
-			{
 				name: 'getAccessToken',
 				url: 'https://accounts.spotify.com/api/token',
 				method: 'post',
@@ -30,13 +24,26 @@ export default class Spotify {
 				url: 'https://accounts.spotify.com/api/token',
 				method: 'post',
 				params: ['grant_type', 'code', 'redirect_uri']
+			},
+			{
+				name: 'currentlyPlaying',
+				url: 'https://api.spotify.com/v1/me/player/currently-playing',
+				method: 'get',
+				params: ['market', 'additional_types']
+			},
+			{
+				name: 'recentlyPlayed',
+				url: 'https://api.spotify.com/v1/me/player/recently-played',
+				method: 'get',
+				params: ['after', 'before', 'limit']
 			}
 		];
 
 		// bind methods
 		this.getRandomString = this.getRandomString.bind(this);
 		this.getAccessToken = this.getAccessToken.bind(this);
-    this.getCurrentlyPlaying = this.getCurrentlyPlaying.bind(this);
+		this.getCurrentlyPlaying = this.getCurrentlyPlaying.bind(this);
+    this.getRecentlyPlayed = this.getRecentlyPlayed.bind(this);
 	}
 
 	getRandomString(length) {
@@ -78,13 +85,13 @@ export default class Spotify {
 	async refreshAccessToken() {
 		const endpoint = this.endpoints.find((e) => e.name === 'refreshAccessToken');
 
-		const query = new URLSearchParams({
+		const queryString = new URLSearchParams({
 			grant_type: 'refresh_token',
 			refresh_token: this.refreshToken
 		}).toString();
 
 		try {
-			const resp = await fetch(endpoint.url + `?${query}`, {
+			const resp = await fetch(endpoint.url + `?${queryString}`, {
 				method: endpoint.method,
 				headers: {
 					Authorization:
@@ -109,14 +116,52 @@ export default class Spotify {
 	async getCurrentlyPlaying(OAuthToken, query) {
 		const endpoint = this.endpoints.find((e) => e.name === 'currentlyPlaying');
 
-		const resp = await fetch(endpoint.url, {
+		const queryString = new URLSearchParams(query).toString();
+
+		const resp = await fetch(endpoint.url + `?${queryString}`, {
 			method: endpoint.method,
 			headers: {
 				accept: 'application/json',
 				'content-type': 'application/json',
 				Authorization: `Bearer ${OAuthToken}`
-			},
-			body: JSON.stringify(query)
+			}
+			// body: JSON.stringify(query)
+		});
+
+		const status = resp?.status;
+
+		switch (status) {
+			case 200:
+				return {
+					status,
+					resp
+				};
+			case 204:
+				return {
+					status,
+					resp: {}
+				};
+			default:
+				return {
+					status,
+					resp: {}
+				};
+		}
+	}
+
+	async getRecentlyPlayed(OAuthToken, query={limit: 1}) {
+		const endpoint = this.endpoints.find((e) => e.name === 'recentlyPlayed');
+
+		const queryString = new URLSearchParams(query).toString();
+
+		const resp = await fetch(endpoint.url + `?${queryString}`, {
+			method: endpoint.method,
+			headers: {
+				accept: 'application/json',
+				'content-type': 'application/json',
+				Authorization: `Bearer ${OAuthToken}`
+			}
+			// body: JSON.stringify(query)
 		});
 
 		const status = resp?.status;

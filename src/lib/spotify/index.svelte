@@ -1,20 +1,46 @@
 <script>
 
-  async function getcurrentlyPlaying() {
+  async function getCurrentlyPlaying() {
     const res = await fetch('/listening/getCurrentlyPlaying.json');
     const data = await res.json();
     return data;
   }
 
-  async function parsecurrentlyPlaying() {
-    const data = await getcurrentlyPlaying();
+  async function getRecentlyPlayed() {
+    const res = await fetch('/listening/getRecentlyPlayed.json');
+    const data = await res.json();
+    return data;
+  }
+
+  async function parseSpotifyData() {
+
+    const currentlyPlayingData = await getCurrentlyPlaying();
+    currentlyPlayingData.type = 'Currently Playing';
+
+    const recentlyPlayedData = await getRecentlyPlayed();
+    recentlyPlayedData.type = 'Recently Played';
+
+    const data = Object.keys(currentlyPlayingData).includes('data')
+      ? currentlyPlayingData
+      : recentlyPlayedData;
+
+    console.log('data', data);
 
     if (data) {
-      const spotifyURL = data?.currentlyPlayingData?.context?.external_urls?.spotify;
-      const { name } = data?.currentlyPlayingData?.item;
-      const { artists } = data?.currentlyPlayingData?.item;
-      const { images } = data?.currentlyPlayingData?.item?.album;
-      const albumName = data?.currentlyPlayingData?.item?.album?.name;
+
+      const context = data.type === 'Currently Playing'
+        ? data?.data?.context
+        : data?.data?.items[0]?.context;
+
+      const item = data.type === 'Currently Playing'
+        ? data?.data?.item
+        : data?.data?.items[0]?.track;
+
+      const spotifyURL = context?.external_urls?.spotify;
+      const { name } = item;
+      const { artists } = item;
+      const { images } = item?.album;
+      const albumName = item?.album?.name;
 
       const artistNames = artists.map(a => a.name);
       const artistNamesString = artistNames.join(',');
@@ -32,6 +58,7 @@
       const imageURL = smallestImage ? smallestImage[0]?.url : null;
 
       return {
+        type: data.type,
         spotifyURL,
         artists,
         name,
@@ -45,7 +72,8 @@
     }
   }
 
-  let currentlyPlayingPromise = parsecurrentlyPlaying();
+  let currentlyPlayingPromise = parseSpotifyData('getCurrentlyPlaying');
+  // let recentlyPlayedPromise =  parseSpotifyData('getCurrentlyPlaying');
 </script>
 
 <div class="min-w-full sm:min-w-[400px] border border-solid border-neutral-600 rounded bg-neutral-800 px-2 py-4">
@@ -56,7 +84,7 @@
   {:then currentlyPlayingData}
     {#if currentlyPlayingData}
        <div class="w-full text-center text-green-400 pb-3 mb-2 border-b border-green-400">
-          Currently Playing
+          {currentlyPlayingData.type}
         </div>
         <div class="flex flex-row flex-nowrap justify-between align-center text-neutral-200">
           <div class="flex-[1_0_auto] flex flex-col">
