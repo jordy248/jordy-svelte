@@ -1,9 +1,9 @@
 <script>
-  export let post;
+	export let post;
 </script>
 
 <div>
-  <svelte:component this={post}/>
+	<svelte:component this={post} />
 </div>
 
 <style lang="scss" global>

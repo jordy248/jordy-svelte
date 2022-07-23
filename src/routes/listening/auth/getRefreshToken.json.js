@@ -13,19 +13,19 @@ export async function get() {
 			return {
 				status: 200,
 				body: {
-					accessTokenData
-				}
+					accessTokenData,
+				},
 			};
 		} else {
 			return {
 				status: 500,
-				error: `Spotify status ${status}`
+				error: `Spotify status ${status}`,
 			};
 		}
 	} catch (error) {
 		return {
 			status: 500,
-			error: `Error getting refresh token.`
+			error: `Error getting refresh token.`,
 		};
 	}
 }

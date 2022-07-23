@@ -1,4 +1,5 @@
-export default {
+// export default {
+module.exports = {
 	root: true,
 	extends: ['eslint:recommended', 'prettier'],
 	plugins: ['svelte3'],

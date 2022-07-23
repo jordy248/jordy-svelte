@@ -12,11 +12,13 @@ export async function handle({ event, resolve }) {
 	// get language
 	const langRE = /[a-z]{2}-[A-Z]{2}/gi;
 	const acceptLanguage = event.request.headers.get('accept-language');
-	const language = langRE.test(acceptLanguage) ? acceptLanguage.match(langRE)[0] : undefined;
+	const language = langRE.test(acceptLanguage)
+		? acceptLanguage.match(langRE)[0]
+		: undefined;
 
 	event.locals.user = {
 		language,
-		headers
+		headers,
 	};
 
 	const response = await resolve(event);
@@ -28,6 +30,6 @@ export function getSession(event) {
 	const { user } = event.locals;
 
 	return {
-		user
+		user,
 	};
 }

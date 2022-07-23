@@ -9,7 +9,9 @@ export async function get() {
 		const accessTokenResp = await spotify.refreshAccessToken();
 		const accessTokenData = accessTokenResp?.access_token;
 
-		const currentlyPlayingResp = await spotify.getCurrentlyPlaying(accessTokenData);
+		const currentlyPlayingResp = await spotify.getCurrentlyPlaying(
+			accessTokenData
+		);
 		const { status } = currentlyPlayingResp;
 
 		if (status === 200) {
@@ -19,8 +21,8 @@ export async function get() {
 			return {
 				status: 200,
 				body: {
-					data: currentlyPlayingData
-				}
+					data: currentlyPlayingData,
+				},
 			};
 		} else if (status === 204) {
 			return {};
@@ -31,7 +33,7 @@ export async function get() {
 		console.log('spotify api error');
 		console.log(error);
 		return {
-			status: 404
+			status: 404,
 		};
 	}
 }

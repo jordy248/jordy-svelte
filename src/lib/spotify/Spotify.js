@@ -1,7 +1,11 @@
 // import 'dotenv/config'; // this makes this work with dev server
 
-const { SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, SPOTIFY_AUTH_CODE, SPOTIFY_REFRESH_TOKEN } =
-	process.env;
+const {
+	SPOTIFY_CLIENT_ID,
+	SPOTIFY_CLIENT_SECRET,
+	SPOTIFY_AUTH_CODE,
+	SPOTIFY_REFRESH_TOKEN,
+} = process.env;
 
 export default class Spotify {
 	constructor() {
@@ -17,38 +21,39 @@ export default class Spotify {
 				name: 'getAccessToken',
 				url: 'https://accounts.spotify.com/api/token',
 				method: 'post',
-				params: ['grant_type', 'code', 'redirect_uri']
+				params: ['grant_type', 'code', 'redirect_uri'],
 			},
 			{
 				name: 'refreshAccessToken',
 				url: 'https://accounts.spotify.com/api/token',
 				method: 'post',
-				params: ['grant_type', 'code', 'redirect_uri']
+				params: ['grant_type', 'code', 'redirect_uri'],
 			},
 			{
 				name: 'currentlyPlaying',
 				url: 'https://api.spotify.com/v1/me/player/currently-playing',
 				method: 'get',
-				params: ['market', 'additional_types']
+				params: ['market', 'additional_types'],
 			},
 			{
 				name: 'recentlyPlayed',
 				url: 'https://api.spotify.com/v1/me/player/recently-played',
 				method: 'get',
-				params: ['after', 'before', 'limit']
-			}
+				params: ['after', 'before', 'limit'],
+			},
 		];
 
 		// bind methods
 		this.getRandomString = this.getRandomString.bind(this);
 		this.getAccessToken = this.getAccessToken.bind(this);
 		this.getCurrentlyPlaying = this.getCurrentlyPlaying.bind(this);
-    this.getRecentlyPlayed = this.getRecentlyPlayed.bind(this);
+		this.getRecentlyPlayed = this.getRecentlyPlayed.bind(this);
 	}
 
 	getRandomString(length) {
 		let text = '';
-		const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+		const possible =
+			'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 		for (let i = 0; i < length; i++) {
 			text += possible.charAt(Math.floor(Math.random() * possible.length));
 		}
@@ -61,7 +66,7 @@ export default class Spotify {
 		const query = new URLSearchParams({
 			grant_type: 'authorization_code',
 			code: this.authCode,
-			redirect_uri: this.redirectURI
+			redirect_uri: this.redirectURI,
 		}).toString();
 
 		try {
@@ -69,9 +74,12 @@ export default class Spotify {
 				method: endpoint.method,
 				headers: {
 					Authorization:
-						'Basic ' + Buffer.from(this.clientID + ':' + this.clientSecret).toString('base64'),
-					'content-type': 'application/x-www-form-urlencoded'
-				}
+						'Basic ' +
+						Buffer.from(this.clientID + ':' + this.clientSecret).toString(
+							'base64'
+						),
+					'content-type': 'application/x-www-form-urlencoded',
+				},
 			});
 
 			return resp;
@@ -83,11 +91,13 @@ export default class Spotify {
 	}
 
 	async refreshAccessToken() {
-		const endpoint = this.endpoints.find((e) => e.name === 'refreshAccessToken');
+		const endpoint = this.endpoints.find(
+			(e) => e.name === 'refreshAccessToken'
+		);
 
 		const queryString = new URLSearchParams({
 			grant_type: 'refresh_token',
-			refresh_token: this.refreshToken
+			refresh_token: this.refreshToken,
 		}).toString();
 
 		try {
@@ -95,9 +105,12 @@ export default class Spotify {
 				method: endpoint.method,
 				headers: {
 					Authorization:
-						'Basic ' + Buffer.from(this.clientID + ':' + this.clientSecret).toString('base64'),
-					'content-type': 'application/x-www-form-urlencoded'
-				}
+						'Basic ' +
+						Buffer.from(this.clientID + ':' + this.clientSecret).toString(
+							'base64'
+						),
+					'content-type': 'application/x-www-form-urlencoded',
+				},
 			});
 
 			if (resp.status === 200) {
@@ -123,8 +136,8 @@ export default class Spotify {
 			headers: {
 				accept: 'application/json',
 				'content-type': 'application/json',
-				Authorization: `Bearer ${OAuthToken}`
-			}
+				Authorization: `Bearer ${OAuthToken}`,
+			},
 			// body: JSON.stringify(query)
 		});
 
@@ -134,22 +147,22 @@ export default class Spotify {
 			case 200:
 				return {
 					status,
-					resp
+					resp,
 				};
 			case 204:
 				return {
 					status,
-					resp: {}
+					resp: {},
 				};
 			default:
 				return {
 					status,
-					resp: {}
+					resp: {},
 				};
 		}
 	}
 
-	async getRecentlyPlayed(OAuthToken, query={limit: 1}) {
+	async getRecentlyPlayed(OAuthToken, query = { limit: 1 }) {
 		const endpoint = this.endpoints.find((e) => e.name === 'recentlyPlayed');
 
 		const queryString = new URLSearchParams(query).toString();
@@ -159,8 +172,8 @@ export default class Spotify {
 			headers: {
 				accept: 'application/json',
 				'content-type': 'application/json',
-				Authorization: `Bearer ${OAuthToken}`
-			}
+				Authorization: `Bearer ${OAuthToken}`,
+			},
 			// body: JSON.stringify(query)
 		});
 
@@ -170,17 +183,17 @@ export default class Spotify {
 			case 200:
 				return {
 					status,
-					resp
+					resp,
 				};
 			case 204:
 				return {
 					status,
-					resp: {}
+					resp: {},
 				};
 			default:
 				return {
 					status,
-					resp: {}
+					resp: {},
 				};
 		}
 	}

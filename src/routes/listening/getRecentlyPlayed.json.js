@@ -19,8 +19,8 @@ export async function get() {
 			return {
 				status: 200,
 				body: {
-					data: recentlyPlayedData
-				}
+					data: recentlyPlayedData,
+				},
 			};
 		} else if (status === 204) {
 			return {};
@@ -31,7 +31,7 @@ export async function get() {
 		console.log('spotify api error');
 		console.log(error);
 		return {
-			status: 404
+			status: 404,
 		};
 	}
 }

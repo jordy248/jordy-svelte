@@ -1,18 +1,17 @@
 <script context="module">
-  export function load({error, status}) {
-
-    return {
-      props: {
-        error,
-        status
-      }
-    }
-  }
+	export function load({ error, status }) {
+		return {
+			props: {
+				error,
+				status,
+			},
+		};
+	}
 </script>
 
 <script>
-  export let error;
-  export let status;
+	export let error;
+	export let status;
 </script>
 
 <h1>Something Happened</h1>
