@@ -1,5 +1,5 @@
 import { resolveGraphqlOptions } from "apollo-server-core";
-import { GraphQLFloat, GraphQLInt, GraphQLList, GraphQLObjectType, GraphQLSchema, GraphQLString } from "graphql";
+import { graphql, GraphQLFloat, GraphQLInt, GraphQLList, GraphQLObjectType, GraphQLSchema, GraphQLString } from "graphql";
 import { sortUserPlugins } from "vite";
 
 import { graphQLData } from "./data.js";
@@ -117,17 +117,26 @@ export const createSchema = async () => {
 				},
 				user: {
 					args: {
-						id: { description: "The user ID to search for", type: GraphQLInt}
+						id: { description: "The user ID to search for", type: GraphQLInt },
+						firstname: { description: "The user firstname to search for (case insensitive)", type: GraphQLString },
 					},
 					description: "Returns the users",
 					type: new GraphQLList(UserType),
-					resolve(_source, { id }, { authorization }) {
-						if (!id) return graphQLData;
+					resolve(_source, { id, firstname }, { authorization }) {
+						if (id) {
+							const users = graphQLData.filter(user => {
+								return user.id === id;
+							});
+							return users;
+						} else if (firstname) {
+							const users = graphQLData.filter(user => {
+								return user.firstname.toLowerCase().trim() === firstname.toLowerCase().trim();
+							});
+							return users;
+						} else {
+							return graphQLData;
+						}
 						
-						const users = graphQLData.filter(user => {
-							return user.id === id
-						});
-						return users;
 					}
 				}
 			},
@@ -160,10 +169,14 @@ export const createSchema = async () => {
 export const defaultQuery = `# Try out our API with a query like this:
 
 query {
-	user {
+	user(firstname:"Jordy") {
 	  id
 	  firstname
 	  lastname
+	  email
+	  website
+	  linkedin
+	  github
 	  jobs {
 		company {
 		  name
@@ -190,6 +203,7 @@ query {
 		analytics
 		marketing
 		tooling
+		other
 	  }
 	}
   }

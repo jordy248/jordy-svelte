@@ -370,6 +370,7 @@ export const graphQLData = [
                     yearsExperience: 2,
                 }
             ],
+            other: [],
         },
     },
     {
