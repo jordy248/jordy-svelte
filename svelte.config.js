@@ -1,4 +1,5 @@
 import preprocess from "svelte-preprocess";
+import preprocessReact from "svelte-preprocess-react/preprocessReact";
 import { mdsvex } from "mdsvex";
 import mdsvexConfig from "./mdsvex.config.js";
 import node from "@sveltejs/adapter-node";
@@ -16,14 +17,26 @@ const config = {
 		}
 	},
 
+	// preprocess: [
+	// 	preprocess({ postcss: true }),
+	// 	mdsvex({
+	// 		extensions: ['.md'],
+	// 		layout: {}
+	// 	}),
+	// ]
+
 	preprocess: [
-		preprocess({
-			postcss: true
+		preprocessReact({
+			preprocess: [
+				preprocess({
+					postcss: true,
+				}),
+				mdsvex({
+					extensions: ['.md'],
+					layout: {}
+				})
+			],
 		}),
-		mdsvex({
-			extensions: ['.md'],
-			layout: {}
-		})
 	]
 };
 

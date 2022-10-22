@@ -2,7 +2,7 @@
 	"name": "sveltekit",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "vite dev",
+		"dev": "vite dev --port 3000",
 		"build": "vite build",
 		"preview": "vite preview",
 		"lint": "prettier --check src/**/*.{html,js,svelte} && eslint --ignore-path .gitignore .",
@@ -11,7 +11,14 @@
 	"dependencies": {
 		"@fontsource/fira-mono": "^4.2.2",
 		"@lukeed/uuid": "^2.0.0",
-		"cookie": "^0.4.1"
+		"apollo-server": "^3.10.2",
+		"cookie": "^0.4.1",
+		"fetch": "^1.1.0",
+		"graphiql": "^2.0.9",
+		"graphql": "^16.6.0",
+		"graphql-helix": "^1.13.0",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-node": "^1.0.0-next.78",
@@ -30,6 +37,7 @@
 		"sass": "^1.53.0",
 		"svelte": "^3.48.0",
 		"svelte-preprocess": "^4.10.7",
+		"svelte-preprocess-react": "^0.11.0",
 		"tailwindcss": "^3.1.5",
 		"vite": "^2.9.13"
 	},

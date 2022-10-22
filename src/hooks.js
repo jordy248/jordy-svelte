@@ -21,7 +21,9 @@ export async function handle({ event, resolve }) {
 		headers,
 	};
 
-	const response = await resolve(event);
+	const response = await resolve(event, {
+		ssr: false,
+	});
 	return response;
 }
 
