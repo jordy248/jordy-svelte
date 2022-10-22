@@ -7,7 +7,8 @@
 	import { defaultQuery } from "../../graphql/schema.ts";
 
 	const fetcher = createGraphiQLFetcher({
-		url: 'http://localhost:3000/graphql',
+		// url: 'http://localhost:3000/graphql',
+		url: 'https://www.jordy.is/graphql',
 		fetch: fetch
 	});
 </script>
