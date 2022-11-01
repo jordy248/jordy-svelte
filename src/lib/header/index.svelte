@@ -13,22 +13,41 @@
 			link: '/about',
 		},
 	];
+
+	function expandHeader() {
+		console.log('expandHeader()');
+		// const header = document.querySelector('header');
+		// header.classList.toggle('expanded');
+		document.body.classList.toggle('nav-expanded');
+	}
 </script>
 
-<header
-	class="flex flex-col justify-center items-center sm:flex-row sm:sticky top-0 z-[2147483647] w-full px-8 py-4 border-b border-zinc-600 brightness-90 backdrop-blur-md text-zinc-50"
->
-	<div
+<header class="flex flex-col sm:flex-row justify-center items-center sm:sticky top-0 z-[2147483647] w-full px-8 py-4 border-b border-zinc-600 brightness-90 backdrop-blur-md text-zinc-50 transition-all duration-200">
+	<a href="/" class="logo no-underline transition-all duration-200 delay-300">
+		<div
 		class="[flex: 2 1 auto] flex flex-row justify-center items-center text-center text-5xl font-Neonderthaw"
 	>
 		<span class="glow-red">jordy</span><span class="animate-flicker">n</span
 		><span class="glow-red">elson</span>
 	</div>
+	</a>
 
-	<!-- <nav class="flex-auto flex flex-row flex-wrap justify-center items-center sm:justify-end py-2"> -->
-	<nav
-		class="flex-auto flex flex-col justify-center sm:flex-row sm:flex-nowrap sm:justify-end py-4 sm:py-2"
-	>
+	<div class="sm:invisible sm:hidden absolute top-[0] right-[0] my-2 mx-2" on:click={expandHeader}>
+		<!-- <button class="hamburger">
+			<div class="hamburger-slice">-</div>
+			<div class="hamburger-slice">-</div>
+			<div class="hamburger-slice">-</div>
+		</button> -->
+		<svg class="hamburger" viewBox="0 0 40 40" width="40" height="40" xmlns="http://www.w3.org/2000/svg" stroke="none" fill="none">
+			<!-- <circle cx="50" cy="50" r="40" />
+			<circle cx="150" cy="50" r="4" /> -->
+			<rect x="0" y="18" height="4" class="hamburger--slice hamburger--mid"></rect>
+			<rect x="0" y="10" height="4" class="hamburger--slice hamburger--top"></rect>
+			<rect x="0" y="26" height="4" class="hamburger--slice hamburger--bottom"></rect>
+		</svg>
+	</div>
+
+	<nav class="invisible hidden sm:visible sm:flex flex-auto flex-row justify-end py-4 sm:py-2">
 		{#each headerLinks as headerLink}
 			<a
 				href={headerLink.link}

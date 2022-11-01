@@ -1,5 +1,6 @@
 @import './_vars.scss';
 
+// >>> [ content links ] >>>
 article {
   a {
     text-decoration: underline;
@@ -16,3 +17,119 @@ article {
     margin: 1.5em 0;
   }
 }
+// <<< [ content links ] <<<
+
+// >>> [ custom scrollbar ] >>>
+body {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-neon-pink) var(--color-blue-extra);
+  
+  &::-webkit-scrollbar {
+    width: 11px;
+  }
+  &::-webkit-scrollbar-track {
+    background: var(--color-neon-purple);
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--color-neon-pink);
+    border-radius: 6px;
+    border: 3px solid transparent;
+  }
+}
+// <<< [ custom scrollbar ] <<<
+
+// >>> [ global header ] >>>
+body {
+  .logo {
+    transition-delay: 500ms;
+  }
+
+  header {
+    .hamburger {
+      cursor: pointer;
+      fill: var(--color-neon-purple);
+
+      &--slice {
+        width: 100%;
+        transition: transform 250ms 0ms ease-in-out;
+
+        &.hamburger {
+          &--top {
+            transform: rotate(0deg);
+            transform-origin: 30% 50%;
+          }
+          &--mid {}
+          &--bottom {
+            transition-delay: 100ms;
+            transform: rotate(0deg);
+            transform-origin: 30% 50%;
+          }
+        }
+      }
+    }
+
+
+  }
+
+  &.nav-expanded {
+    overflow: hidden;
+
+    header {
+      padding-bottom: 100vh;
+
+      .hamburger {
+        &--slice {
+  
+          &.hamburger {
+            &--top {
+              transform: rotate(45deg);
+            }
+            &--mid {
+              display: none;
+              visibility: hidden;
+              height: 0px;
+            }
+            &--bottom {
+              transform: rotate(-45deg);
+            }
+          }
+        }
+      }
+
+      .logo {
+        margin-top: 40vh;
+      }
+
+      nav {
+        display: inherit;
+        visibility: visible;
+      }
+
+      .hamburger {
+        .hamburger-slice {
+          color: red;
+        }
+      }
+    }
+  }
+}
+
+header {
+  &.expanded {
+    // animation: 1s 1 forwards expandMenuOld;
+  }
+}
+
+@keyframes expandMenuOld {
+  0% {}
+  50% {
+    padding-bottom: calc(100vh - 105px);
+  }
+  100% {
+    // position: absolute;
+    // bottom: 0;
+    // padding-bottom: 0px;
+    padding-bottom: calc(100vh - 105px);
+  }
+}
+// <<< [ global header ] <<<
