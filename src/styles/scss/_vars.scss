@@ -1,4 +1,10 @@
 :root {
+	--tailwind-breakpoint-sm: 640px;
+	--tailwind-breakpoint-md: 768px;
+	--tailwind-breakpoint-lg: 1024px;
+	--tailwind-breakpoint-xl: 1280px;
+	--tailwind-breakpoint-2xl: 1536px;
+
 	--color-neon-red: #f40;
 	--color-neon-blue: #08f;
 	--color-neon-pink: #e7b8bc;
