@@ -1,0 +1,24 @@
+// >>> [ content links ] >>>
+article {
+	a {
+		text-decoration: underline;
+		color: var(--color-neon-purple);
+		text-shadow: var(--color-neon-pink) 0px 0px 1px;
+		transition: 125ms ease all;
+
+		&:hover {
+			text-shadow: var(--color-neon-pink) 0px 0px 14px;
+		}
+	}
+
+	p {
+		margin: 1.5em 0;
+	}
+}
+// <<< [ content links ] <<<
+
+// >>> [ katex extra ] >>>
+.katex-html {
+    font-size: 0.875rem;
+}
+// <<< [ katex extra ] <<<
