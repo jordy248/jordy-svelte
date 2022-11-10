@@ -24,17 +24,13 @@ const config = {
 	// 		layout: {}
 	// 	}),
 	// ]
-
 	preprocess: [
 		preprocessReact({
 			preprocess: [
 				preprocess({
 					postcss: true,
 				}),
-				mdsvex({
-					extensions: ['.md'],
-					layout: {}
-				})
+				mdsvex(mdsvexConfig)
 			],
 		}),
 	]

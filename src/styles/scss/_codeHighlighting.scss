@@ -1,0 +1,52 @@
+@import './vars';
+
+// >>> [ syntax highlighting ] >>>
+code {
+	font-family: IBM Plex Mono;
+	counter-reset: step;
+	counter-increment: step 0;
+}
+
+.shiki {
+	border-radius: var(--spacing-1);
+	padding: var(--spacing-6) var(--spacing-4);
+	margin: var(--spacing-4) auto var(--spacing-18);
+	box-shadow: var(--shadow-elevation-medium);
+	overflow-x: auto;
+	max-width: var(--max-width-full);
+
+	scrollbar-width: thin;
+	scrollbar-color: var(--color-neon-pink) var(--color-blue-extra);
+
+	&::-webkit-scrollbar {
+		width: 11px;
+	}
+	&::-webkit-scrollbar-track {
+		background: var(--color-neon-purple);
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: var(--color-neon-pink);
+		border-radius: 6px;
+		border: 3px solid transparent;
+	}
+}
+
+.highlight-line {
+	display: inline-block;
+	background-color: var(--colour-code-background-highlighted);
+	width: calc(var(--max-width-full) + var(--spacing-4));
+	border-left: var(--spacing-1) solid var(--colour-code-line-highlight);
+	margin-left: calc(-1 * var(--spacing-1));
+}
+
+code .line::before {
+	display: inline-block;
+	content: counter(step);
+	counter-increment: step;
+	width: var(--spacing-6);
+	margin-right: var(--spacing-6);
+	text-align: right;
+	font-variant-numeric: tabular-nums;
+	color: var(--colour-line-numbers);
+}
+// <<< [ syntax highlighting ] <<<
