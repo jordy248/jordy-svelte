@@ -1,10 +1,9 @@
-import { join, resolve } from 'node:path';
 import { defineMDSveXConfig as defineConfig } from "mdsvex";
+import rehypeKatexSvelte from "rehype-katex-svelte";
+import remarkMath from 'remark-math'
 
 import highlighter from'./src/lib/utilities/codeHighlighter.js';
 
-const __dirname = resolve();
-console.log(join(__dirname, 'test'));
 
 const config = defineConfig({
   extensions: [".svelte.md", ".md", ".svx"],
@@ -14,9 +13,12 @@ const config = defineConfig({
   highlight: {
     highlighter,
   },
-  // layout: join(__dirname, './src/lib/components/MarkdownLayout.svelte'),
-  remarkPlugins: [],
-  rehypePlugins: [],
+  remarkPlugins: [
+    remarkMath,
+  ],
+  rehypePlugins: [
+    rehypeKatexSvelte,
+  ],
 });
 
 export default config;
