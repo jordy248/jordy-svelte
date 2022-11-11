@@ -6,7 +6,20 @@
 		);
 
 		const postsList = Object.values(posts);
-		const postsMeta = postsList.map((p) => p.metadata);
+		const postsMeta = postsList
+			.map((p) => p.metadata)
+			.sort((a, b) => {
+				const aDate = +new Date(a.date);
+				const bDate = +new Date(b.date);
+
+				if (aDate < bDate) {
+					return 1
+				}
+				if (aDate > bDate) {
+					return -1
+				}
+				return 0;
+		});
 
 		console.log('posts', posts);
 		console.log('postsMeta', postsMeta);
@@ -30,7 +43,7 @@
 
 	<aside class="mt-5">
 		{#each postsMeta as postMeta}
-			<div class="flex flex-col">
+			<div class="flex flex-col my-4">
 				<div class="w-full flex-[1_0_auto]">
 					<h3 class="text-xl">
 						<a
