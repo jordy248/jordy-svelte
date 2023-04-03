@@ -13,13 +13,13 @@
 				const bDate = +new Date(b.date);
 
 				if (aDate < bDate) {
-					return 1
+					return 1;
 				}
 				if (aDate > bDate) {
-					return -1
+					return -1;
 				}
 				return 0;
-		});
+			});
 
 		console.log('posts', posts);
 		console.log('postsMeta', postsMeta);
@@ -35,8 +35,11 @@
 </script>
 
 <script>
+	import Meta from '$lib/meta/index.svelte';
 	export let postsMeta;
 </script>
+
+<Meta title="Writing" />
 
 <div class="w-full min-h-screen	text-center margin-auto">
 	<slot><!-- optional fallback --></slot>

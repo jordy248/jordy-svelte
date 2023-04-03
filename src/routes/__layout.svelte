@@ -2,9 +2,12 @@
 	import '../app.css';
 	import '../styles/css/app.css';
 
+	import Meta from '$lib/meta/index.svelte';
 	import Header from '$lib/header/index.svelte';
 	import Footer from '$lib/footer/index.svelte';
 </script>
+
+<Meta />
 
 <Header />
 

@@ -27,6 +27,9 @@
 </script>
 
 <script>
+	import Meta from '$lib/meta/index.svelte';
+	import Header from '$lib/header/index.svelte';
+	import Footer from '$lib/footer/index.svelte';
 	import ProcessedPost from '$lib/processedPost/index.svelte';
 
 	export let Post;
@@ -47,33 +50,22 @@
 		Post.metadata.date && getFormattedDate(Post.metadata.date, language);
 	const dateUpdated =
 		Post.metadata.updated && getFormattedDate(Post.metadata.updated, language);
+
+	const metaProps = {
+		url: `https://jordy.is/writing/about/${Post.metadata.slug}/`,
+		title: Post.metadata.title,
+		description: Post.metadata.description,
+		image: `https://jordy.is/images/post-images/${Post.metadata.image}`,
+		article: {
+			datePublished: Post.metadata.date,
+			lastUpdated: Post.metadata.updated || Post.metadata.date,
+		},
+	};
 </script>
 
-<svelte:head>
-	<title>{Post.metadata.title} - Jordy Nelson</title>
-	<meta
-		data-key="description"
-		name="description"
-		content={Post.metadata.description}
-	/>
-	<meta property="og:title" content={Post.metadata.title} />
-	<meta property="og:description" content={Post.metadata.description} />
-	<meta property="og:type" content="article" />
-	<meta
-		property="og:image"
-		content="https://jordy.is/images/post-images/{Post.metadata.image}"
-	/>
-	<meta
-		property="og:url"
-		content="https://jordy.is/writing/about/{Post.metadata.slug}/"
-	/>
-	<meta name="twitter:title" content={Post.metadata.title} />
-	<meta name="twitter:description" content={Post.metadata.description} />
-	<meta
-		name="twitter:image"
-		content="https://jordy.is/images/post-images/{Post.metadata.image}"
-	/>
-</svelte:head>
+<Meta {...metaProps} />
+
+<Header />
 
 <main class="container">
 	<div
@@ -103,3 +95,9 @@
 		<ProcessedPost post={Post.default} />
 	</article>
 </main>
+
+<Footer />
+
+<style lang="scss" global>
+	@import '../../../styles/scss/app.scss';
+</style>
