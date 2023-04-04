@@ -21,11 +21,7 @@
 <header
 	class="flex flex-col sm:flex-row justify-center items-center sm:sticky top-0 z-[2147483647] w-full px-4 sm:px-8 py-4 border-b border-zinc-600 brightness-90 backdrop-blur-md text-zinc-50 transition-all duration-250"
 >
-	<a
-		href="/"
-		class="logo no-underline transition-all duration-200 delay-300"
-		on:click={expandHeader}
-	>
+	<a href="/" class="logo no-underline transition-all duration-200 delay-300">
 		<div
 			class="[flex: 2 1 auto] flex flex-row justify-center items-center text-center text-5xl font-Neonderthaw"
 		>
