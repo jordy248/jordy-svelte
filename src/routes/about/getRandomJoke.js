@@ -1,6 +1,6 @@
 export default async function getRandomJoke () {
-  const url= 'http://localhost:3000/graphql';
-  // const url= 'https://www.jordy.is/graphql';
+  // const url= 'http://localhost:3000/graphql';
+  const url= 'https://www.jordy.is/graphql';
   const query = `query {
     joke {
       setup
