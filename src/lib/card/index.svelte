@@ -1,16 +1,28 @@
 <script>
 	export let obverseText;
 	export let reverseText;
+	export let obverseMarkup;
+	export let reverseMarkup;
+
+	const hasReverse = reverseText || reverseMarkup;
 </script>
 
-{#if reverseText}
+{#if hasReverse}
 	<div class="card-container card-flips">
 		<div class="card">
 			<div class="card-face card-face--obverse">
-				<span>{obverseText}</span>
+				{#if obverseMarkup}
+					<div>{@html obverseMarkup}</div>
+				{:else}
+					<span>{obverseText}</span>
+				{/if}
 			</div>
 			<div class="card-face card-face--reverse">
-				<span>{reverseText}</span>
+				{#if reverseMarkup}
+					<div>{@html reverseMarkup}</div>
+				{:else}
+					<span>{reverseText}</span>
+				{/if}
 			</div>
 		</div>
 	</div>
@@ -18,7 +30,11 @@
 	<div class="card-container">
 		<div class="card">
 			<div class="card-face card-face--obverse">
-				<span>{obverseText}</span>
+				{#if obverseMarkup}
+					<div>{@html obverseMarkup}</div>
+				{:else}
+					<span>{obverseText}</span>
+				{/if}
 			</div>
 		</div>
 	</div>

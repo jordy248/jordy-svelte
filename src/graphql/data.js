@@ -570,47 +570,47 @@ export const graphQLData = {
     jokes: [
         {
             id: 0,
-            setup: 'Have you heard the one about the elevator?',
+            setup: 'Have you heard the one <strong>about</strong> the elevator?',
             punchline: 'It works on so many levels.',
         },
         {
             id: 1,
-            setup: 'Have you heard the one about the procrastinator?',
+            setup: 'Have you heard the one <strong>about</strong> the procrastinator?',
             punchline: "I'll tell you later.",
         },
         {
             id: 2,
-            setup: 'Have you heard the one about the jump rope?',
+            setup: 'Have you heard the one <strong>about</strong> the jump rope?',
             punchline: "Never mind, I'll skip it.",
         },
         {
             id: 3,
-            setup: 'Have you heard the one about the electrician?',
+            setup: 'Have you heard the one <strong>about</strong> the electrician?',
             punchline: "It's shocking.",
         },
         {
             id: 4,
-            setup: 'Have you heard the one about the roof?',
+            setup: 'Have you heard the one <strong>about</strong> the roof?',
             punchline: "It goes over most people's heads.",
         },
         {
             id: 5,
-            setup: 'Have you heard the one about the frog parked illegally?',
+            setup: 'Have you heard the one <strong>about</strong> the frog parked illegally?',
             punchline: "It got toad.",
         },
         {
             id: 6,
-            setup: "Have you heard the one about population growth in Ireland's capital?",
+            setup: "Have you heard the one <strong>about</strong> population growth in Ireland's capital?",
             punchline: "It's Dublin.",
         },
         {
             id: 7,
-            setup: "Have you heard the one about the person who invented Lifesavers?",
+            setup: "Have you heard the one <strong>about</strong> the person who invented Lifesavers?",
             punchline: "They made a mint.",
         }, 
         {
             id: 8,
-            setup: "Have you heard the one about the antennas getting married?",
+            setup: "Have you heard the one <strong>about</strong> the antennas getting married?",
             punchline: "The wedding was okay, but the reception was excellent.",
         }, 
     ],
