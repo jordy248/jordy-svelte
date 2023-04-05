@@ -1,8 +1,10 @@
 <script>
+	import Card from '$lib/card/index.svelte';
+
 	const emoji = Math.floor(Math.random() * 3);
 </script>
 
-<div class="w-full min-h-screen	text-left margin-auto">
+<div class="w-full min-h-[calc(100vh-100px)]	text-left margin-auto">
 	<h1 class="text-center text-3xl py-3 sm:text-4xl sm:py-4">
 		Hi, I'm Jordy
 		{#if emoji === 0}
@@ -23,7 +25,7 @@
 		{/if}
 		<!-- <span class="inline-block cursor-default origin-[75%_90%] hover:animate-fingerguns">👈</span> -->
 	</h1>
-	<p>
+	<p class="mt-16">
 		A scrappy, curious, and data-driven marketing enablement professional adept
 		at blending the quantitative and the creative with emerging technologies to
 		drive constituent action. Versed in front-end dev, digital analytics,
