@@ -22,8 +22,6 @@
 			? currentlyPlayingData
 			: recentlyPlayedData;
 
-		console.log('data', data);
-
 		if (data) {
 			const context =
 				data.type === 'Currently Playing'
