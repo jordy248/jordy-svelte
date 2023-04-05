@@ -65,8 +65,6 @@
 
 <Meta {...metaProps} />
 
-<Header />
-
 <main class="container">
 	<div
 		class="w-2/3 m-auto flex flex-col justify-start align-center mb-8 text-zinc-200"
@@ -95,9 +93,3 @@
 		<ProcessedPost post={Post.default} />
 	</article>
 </main>
-
-<Footer />
-
-<style lang="scss" global>
-	@import '../../../styles/scss/app.scss';
-</style>

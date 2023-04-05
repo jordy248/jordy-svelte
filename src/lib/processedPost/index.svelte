@@ -7,10 +7,6 @@
 	<svelte:component this={post} />
 </div>
 
-<style lang="scss" global>
-	@import '../../styles/scss/codeHighlighting';
-</style>
-
 <svelte:head>
 	<link
 		rel="stylesheet"
@@ -19,3 +15,7 @@
 		crossorigin="anonymous"
 	/>
 </svelte:head>
+
+<style lang="scss" global>
+	@import '../../styles/scss/codeHighlighting';
+</style>
