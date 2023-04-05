@@ -21,10 +21,6 @@
 				return 0;
 			});
 
-		console.log('posts', posts);
-		console.log('postsMeta', postsMeta);
-		console.log('postImages', postImages);
-
 		return {
 			props: {
 				postsMeta,
