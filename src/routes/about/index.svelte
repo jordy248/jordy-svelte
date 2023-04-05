@@ -42,7 +42,7 @@
 			{#await jokesPromise}
 				<Card obverseText="Getting a cheesey joke about..." />
 			{:then joke}
-				<Card obverseText={joke.setup} reverseText={joke.punchline} />
+				<Card obverseMarkup={joke.setup} reverseMarkup={joke.punchline} />
 			{:catch error}
 				<p style="color: red">{error.message}</p>
 			{/await}
