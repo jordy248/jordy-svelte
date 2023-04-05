@@ -4,7 +4,6 @@
 	import { GraphiQL } from 'graphiql';
 	import 'graphiql/graphiql.css';
 
-	import Meta from '$lib/meta/index.svelte';
 	import Card from '$lib/card/index.svelte';
 	import { defaultQuery } from '../../graphql/schema.ts';
 	import getRandomJoke from './getRandomJoke.js';
