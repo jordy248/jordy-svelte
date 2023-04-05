@@ -13,8 +13,8 @@
 	import finnPhoto from '$lib/assets/finn.jpg';
 
 	const fetcher = createGraphiQLFetcher({
-		// url: 'http://localhost:3000/graphql',
-		url: 'https://www.jordy.is/graphql',
+		url: 'http://localhost:3000/graphql',
+		// url: 'https://www.jordy.is/graphql',
 		fetch: fetch,
 	});
 
@@ -108,7 +108,7 @@
 		</div>
 	</div>
 </div>
-<div class="w-full min-h-screen">
+<div class="w-full mt-6 mb-12">
 	<link
 		rel="stylesheet"
 		href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.23.0/theme/dracula.css"

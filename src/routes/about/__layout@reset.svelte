@@ -11,7 +11,7 @@
 
 <Header />
 
-<div class="md:container w-full m-0">
+<div class="w-full m-0">
 	<slot />
 </div>
 
