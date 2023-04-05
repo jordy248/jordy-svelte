@@ -8,6 +8,16 @@ export const createSchema = async () => {
 	// You can substitute this with any way you want to build your schema
 	// (that's why this is in an async function -- for libraries like TypeGraphQL)
 
+	const JokeType = new GraphQLObjectType({
+		name: "Joke",
+		description: "Joke Type",
+		fields: () => ({
+			id: { type: GraphQLInt },
+			setup: { type: GraphQLString },
+			punchline: { type: GraphQLString },
+		}),
+	});
+
 	const UserType = new GraphQLObjectType({
 		name: "User",
 		description: "User Type",
@@ -124,21 +134,38 @@ export const createSchema = async () => {
 					type: new GraphQLList(UserType),
 					resolve(_source, { id, firstname }, { authorization }) {
 						if (id) {
-							const users = graphQLData.filter(user => {
+							const users = graphQLData.users.filter(user => {
 								return user.id === id;
 							});
 							return users;
 						} else if (firstname) {
-							const users = graphQLData.filter(user => {
+							const users = graphQLData.users.filter(user => {
 								return user.firstname.toLowerCase().trim() === firstname.toLowerCase().trim();
 							});
 							return users;
 						} else {
-							return graphQLData;
+							return graphQLData.users;
 						}
 						
 					}
-				}
+				},
+				joke: {
+					args: {
+						id: { description: "The joke ID to search for.", type: GraphQLInt },
+					},
+					description: "Returns joke matching ID requested. If no ID is provided, all jokes are returned.",
+					type: new GraphQLList(JokeType),
+					resolve(_source, { id }, { authorization }) {
+						if (id) {
+							const jokes = graphQLData.jokes.filter(joke=> {
+								return joke.id === id;
+							});
+							return jokes;
+						} else {
+							return graphQLData.jokes;
+						}
+					}
+				},
 			},
 		}),
 	});
