@@ -2,16 +2,14 @@ import preprocess from "svelte-preprocess";
 import preprocessReact from "svelte-preprocess-react/preprocessReact";
 import { mdsvex } from "mdsvex";
 import mdsvexConfig from "./mdsvex.config.js";
-// import node from "@sveltejs/adapter-node";
-import adapter from '@sveltejs/adapter-auto';
+import node from "@sveltejs/adapter-node";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	extensions: ['.svelte', ...mdsvexConfig.extensions],
 
 	kit: {
-		// adapter: node(),
-		adapter: adapter(),
+		adapter: node(),
 
 		// Override http methods in the Todo forms
 		methodOverride: {
